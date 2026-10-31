@@ -1,9 +1,17 @@
+{#
+ # Collapsible filters panel. Hookable configuration:
+ #   open:      true / false, open on load when criteria are set by default
+ #   indicator: false hides the dot of the trigger shown when criteria are set
+ # Inner hooks: "filters#trigger" (inside the trigger, after its title) and "filters#summary" (between the trigger
+ # and the form, visible when the panel is collapsed).
+ #}
 {% from '@Rem42ShadcnAdminUi/shared/helper/ui.html.twig' import button_class %}
 
 {% set resources = resources|default(hookable_metadata.context.resources|default(null)) %}
 {% set path = path(app.request.attributes.get('_route'), app.request.attributes.all('_route_params')) %}
 {% set criteria = app.request.query.all('criteria') %}
-{% set open = criteria is not empty %}
+{% set configuration = hookable_metadata.configuration|default({}) %}
+{% set open = configuration.open ?? (criteria is not empty) %}
 {% set enabled_filters = resources.definition.enabledFilters|default([])|filter(filter => filter.enabled) %}
 
 {% if enabled_filters is not empty %}
@@ -23,11 +31,14 @@
         >
             {{ ux_icon('lucide:sliders-horizontal', {class: 'size-4 text-muted-foreground', 'aria-hidden': 'true'}) }}
             <span>{{ 'sylius.ui.filters'|trans }}</span>
-            {% if criteria is not empty %}
+            {% if criteria is not empty and (configuration.indicator ?? true) %}
                 <span class="size-1.5 rounded-full bg-primary" aria-hidden="true"></span>
             {% endif %}
+            {% hook 'filters#trigger' %}
             {{ ux_icon('lucide:chevron-down', {class: 'ms-auto size-4 text-muted-foreground transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180', 'aria-hidden': 'true'}) }}
         </button>
+
+        {% hook 'filters#summary' %}
 
         <div data-shadcn--collapsible-target="content" class="border-t" {{ open ? '' : 'hidden' }}>
             <form method="get" action="{{ path }}" novalidate class="flex flex-col gap-4 p-4" {{ sylius_test_html_attribute('filters-form') }}>

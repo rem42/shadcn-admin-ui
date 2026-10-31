@@ -5,6 +5,7 @@
 - [What you get](#what-you-get)
 - [Column options](#column-options)
 - [Mobile cards](#mobile-cards)
+- [Filters panel](#filters-panel)
 
 ---
 
@@ -51,7 +52,33 @@ StringField::create('number')->setOptions(['vars' => ['mobile' => 'title']]);
 TwigField::create('state', 'admin/order/state.html.twig')->setOptions(['vars' => ['mobile' => 'badge']]);
 ```
 
-Quick filter tabs, the environment indicator and searchable entity filters live in [rem42/sylius-admin-kit-bundle](https://github.com/rem42/sylius-admin-kit-bundle).
+## Filters panel
+
+The filters of a grid sit in a collapsible card, open on load when criteria are set, with a dot in its trigger. The
+`filters` hookable accepts a configuration:
+
+| Key         | Default                     | Effect                                              |
+|-------------|-----------------------------|-----------------------------------------------------|
+| `open`      | open when criteria are set  | `true` / `false`: state of the panel on load        |
+| `indicator` | `true`                      | `false` hides the dot shown when criteria are set   |
+
+```yaml
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.common.index.content.grid':
+            filters:
+                configuration:
+                    open: false
+```
+
+Two hooks let you add content to the panel, with the context of the index page (`resources`):
+
+| Hook                                                        | Place                                                      |
+|-------------------------------------------------------------|------------------------------------------------------------|
+| `sylius_admin.common.index.content.grid.filters#trigger`    | Inside the trigger, after its title (e.g. a counter)       |
+| `sylius_admin.common.index.content.grid.filters#summary`    | Between the trigger and the form, shown even when collapsed |
+
+Quick filter tabs, the list of active filters, the environment indicator and searchable entity filters live in [rem42/sylius-admin-kit-bundle](https://github.com/rem42/sylius-admin-kit-bundle).
 
 ---
 
