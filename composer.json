@@ -1,0 +1,87 @@
+{
+    "name": "rem42/shadcn-admin-ui",
+    "description": "Tailwind CSS + shadcn/ui (Symfony UX Toolkit) admin theme for Sylius Stack, a drop-in alternative to sylius/bootstrap-admin-ui.",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rem42",
+            "homepage": "https://github.com/rem42"
+        }
+    ],
+    "keywords": [
+        "sylius",
+        "sylius-stack",
+        "admin",
+        "tailwind",
+        "shadcn",
+        "symfony-ux"
+    ],
+    "require": {
+        "php": ">=8.4",
+        "knplabs/knp-menu-bundle": "^3.0",
+        "pagerfanta/twig": "^4.6",
+        "sylius/admin-ui": "^0.14",
+        "sylius/grid-bundle": "^1.16",
+        "sylius/resource-bundle": "^1.13",
+        "sylius/twig-extra": "^0.14",
+        "sylius/twig-hooks": "^0.14",
+        "symfony/asset": "^7.4 || ^8.0",
+        "symfony/asset-mapper": "^7.4 || ^8.0",
+        "symfony/form": "^7.4 || ^8.0",
+        "symfony/framework-bundle": "^7.4 || ^8.0",
+        "symfony/security-bundle": "^7.4 || ^8.0",
+        "symfony/stimulus-bundle": "^3.5",
+        "symfony/ux-icons": "^3.5",
+        "symfony/ux-twig-component": "^3.5",
+        "symfonycasts/tailwind-bundle": "^1.0",
+        "tales-from-a-dev/twig-tailwind-extra": "^1.3",
+        "twig/extra-bundle": "^3.24",
+        "twig/html-extra": "^3.24"
+    },
+    "require-dev": {
+        "doctrine/doctrine-bundle": "^2.13 || ^3.0",
+        "doctrine/orm": "^3.4",
+        "pagerfanta/doctrine-orm-adapter": "^4.6",
+        "phpunit/phpunit": "^11.5",
+        "rem42/php-cs-fixer-config": "^4.1",
+        "sylius/ui-translations": "^0.14",
+        "symfony/browser-kit": "^7.4 || ^8.0",
+        "symfony/console": "^7.4 || ^8.0",
+        "symfony/css-selector": "^7.4 || ^8.0",
+        "symfony/translation": "^7.4 || ^8.0",
+        "symfony/twig-bundle": "^7.4 || ^8.0",
+        "symfony/ux-toolkit": "^3.6",
+        "symfony/validator": "^7.4 || ^8.0",
+        "symfony/yaml": "^7.4 || ^8.0",
+        "vincentlanglet/twig-cs-fixer": "^4.1"
+    },
+    "conflict": {
+        "behat/transliterator": "<1.5",
+        "twig/twig": "3.29.0"
+    },
+    "suggest": {
+        "symfony/ux-live-component": "For Live Component based forms",
+        "symfony/ux-autocomplete": "For autocomplete form fields",
+        "rem42/sylius-admin-kit-bundle": "Quick filters, environment indicator and searchable entity filters",
+        "symfony/workflow": "For the apply_transition grid action",
+        "pagerfanta/doctrine-orm-adapter": "For grids backed by Doctrine ORM"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rem42\\ShadcnAdminUi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\": "tests/Application/src/",
+            "Tests\\Rem42\\ShadcnAdminUi\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "@php vendor/bin/phpunit"
+    }
+}
