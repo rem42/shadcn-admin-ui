@@ -85,6 +85,29 @@ UX Autocomplete.
 | 🔀 [Migration](docs/migration.md)             | Move an existing project from BootstrapAdminUi                                     |
 | 🛠️ [Contributing](docs/contributing.md)       | Run the demo application, the tests, and update the shadcn recipes                 |
 
+## Screenshots
+
+<a href="docs/screenshots/login_page.png" target="_blank">
+<picture>
+  <img width="20%" src="docs/screenshots/login_page.png" alt="Screenshot">
+</picture>
+</a>
+<a href="docs/screenshots/dashboard.png" target="_blank">
+<picture>
+  <img width="20%" src="docs/screenshots/dashboard.png" alt="Screenshot">
+</picture>
+</a>
+<a href="docs/screenshots/list.png" target="_blank">
+<picture>
+  <img width="20%" src="docs/screenshots/list.png" alt="Screenshot">
+</picture>
+</a>
+<a href="docs/screenshots/form.png" target="_blank">
+<picture>
+  <img width="20%" src="docs/screenshots/form.png" alt="Screenshot">
+</picture>
+</a>
+
 ## Try the demo
 
 ```bash
