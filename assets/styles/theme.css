@@ -455,3 +455,17 @@
 ):has(.ts-wrapper.dropdown-active) {
     overflow: visible;
 }
+
+/*
+ * overflow-x: auto forces overflow-y: auto, so the closed (invisible but still laid out) dropdown menu of the
+ * last rows made the table container scroll vertically. Take the closed menus out of the layout, and let an
+ * open one overflow the table container and its card, like Tom Select above.
+ */
+[data-slot="table-container"] [data-slot="dropdown-menu-content"][data-state="closed"] {
+    display: none;
+}
+
+[data-slot="table-container"]:has([data-slot="dropdown-menu"][data-state="open"]),
+[data-slot="card"]:has([data-slot="table-container"] [data-slot="dropdown-menu"][data-state="open"]) {
+    overflow: visible;
+}
