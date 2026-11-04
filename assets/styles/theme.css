@@ -214,6 +214,14 @@
 }
 
 /*
+ * The sidebar body scrolls on its own: once at its end, the wheel must not scroll the page behind it.
+ * Set here rather than in Sidebar/Content.html.twig, which app:shadcn:update overwrites with the recipe.
+ */
+[data-slot="sidebar-content"] {
+    overscroll-behavior: contain;
+}
+
+/*
  * "inset" variant: the navbar, the content and the footer form a rounded panel next to the sidebar.
  * The panel (.page) takes the sidebar room as its margin, so its children are no longer shifted.
  */
