@@ -51,7 +51,7 @@
         "symfony/css-selector": "^7.4 || ^8.0",
         "symfony/translation": "^7.4 || ^8.0",
         "symfony/twig-bundle": "^7.4 || ^8.0",
-        "symfony/ux-toolkit": "^3.6",
+        "symfony/ux-toolkit": "^3.7",
         "symfony/validator": "^7.4 || ^8.0",
         "symfony/yaml": "^7.4 || ^8.0",
         "vincentlanglet/twig-cs-fixer": "^4.1"
